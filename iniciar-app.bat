@@ -5,7 +5,7 @@ echo ============================================
 echo.
 
 set PATH=C:\Users\JAVIER GUZMAN\AppData\Roaming\fnm\node-versions\v24.14.0\installation;%PATH%
-cd /d "D:\TOPOGIS #2\TRABAJOS\BUSQUEDA IMPLACABLE\topogis-linderos-web\packages\frontend"
+cd /d "D:\topogis-linderos-web\packages\frontend"
 
 echo Verificando Node.js...
 node --version

@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --color-primary: #0d7377;
@@ -12,17 +14,8 @@
   --color-text-muted: #64748b;
 }
 
-@theme {
-  --color-primary: var(--color-primary);
-  --color-primary-light: var(--color-primary-light);
-  --color-primary-dark: var(--color-primary-dark);
-  --color-accent: var(--color-accent);
-  --color-surface: var(--color-surface);
-  --color-surface-hover: var(--color-surface-hover);
-}
-
 body {
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
   color: var(--color-text);
   background-color: #ffffff;
 }

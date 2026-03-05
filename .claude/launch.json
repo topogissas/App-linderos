@@ -9,9 +9,13 @@
     },
     {
       "name": "frontend",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "port": 3000
+      "runtimeExecutable": "C:\\Users\\JAVIER GUZMAN\\AppData\\Roaming\\fnm\\node-versions\\v24.14.0\\installation\\npx.cmd",
+      "runtimeArgs": ["next", "dev", "--port", "3000"],
+      "cwd": "packages/frontend",
+      "port": 3000,
+      "env": {
+        "PATH": "C:\\Users\\JAVIER GUZMAN\\AppData\\Roaming\\fnm\\node-versions\\v24.14.0\\installation;%PATH%"
+      }
     }
   ]
 }
