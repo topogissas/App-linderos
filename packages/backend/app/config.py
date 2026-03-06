@@ -4,13 +4,13 @@ from pydantic_settings import BaseSettings
 class Settings(BaseSettings):
     # App
     app_name: str = "TopoGIS Linderos API"
-    debug: bool = False
+    debug: bool = True
 
-    # Database
-    database_url: str = "postgresql+asyncpg://topogis:topogis_dev@localhost:5432/topogis_linderos"
+    # Database - SQLite por defecto para desarrollo local
+    database_url: str = "sqlite+aiosqlite:///./topogis.db"
 
     # JWT
-    secret_key: str = "CHANGE-ME-in-production-use-a-strong-random-key"
+    secret_key: str = "dev-secret-key-change-in-production-12345678"
     algorithm: str = "HS256"
     access_token_expire_minutes: int = 60 * 24  # 24 horas
 

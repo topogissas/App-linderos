@@ -47,8 +47,8 @@ export interface User {
   id: string;
   email: string;
   full_name: string;
-  is_active: boolean;
-  subscription_tier: string;
+  subscription_status: string;
+  subscription_plan: string | null;
 }
 
 export interface ProjectSummary {
@@ -57,7 +57,6 @@ export interface ProjectSummary {
   area_m2: number | null;
   perimetro_m: number | null;
   updated_at: string;
-  created_at: string;
 }
 
 export interface Project {
@@ -103,8 +102,8 @@ export async function register(
   full_name: string,
   email: string,
   password: string
-): Promise<User> {
-  return fetchApi<User>("/api/auth/register", {
+): Promise<LoginResponse> {
+  return fetchApi<LoginResponse>("/api/auth/register", {
     method: "POST",
     body: JSON.stringify({ full_name, email, password }),
   });
@@ -117,7 +116,7 @@ export async function getMe(): Promise<User> {
 // ---------- projects ----------
 
 export async function getProjects(): Promise<ProjectSummary[]> {
-  return fetchApi<ProjectSummary[]>("/api/projects");
+  return fetchApi<ProjectSummary[]>("/api/projects/");
 }
 
 export async function getProject(id: string): Promise<Project> {
@@ -127,7 +126,7 @@ export async function getProject(id: string): Promise<Project> {
 export async function createProject(
   title: string
 ): Promise<Project> {
-  return fetchApi<Project>("/api/projects", {
+  return fetchApi<Project>("/api/projects/", {
     method: "POST",
     body: JSON.stringify({ title }),
   });

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { register, login } from "@/lib/api";
+import { register } from "@/lib/api";
 import { Compass } from "lucide-react";
 
 export default function RegisterPage() {
@@ -20,9 +20,8 @@ export default function RegisterPage() {
     setLoading(true);
 
     try {
-      await register(fullName, email, password);
-      // Auto-login after registration
-      const data = await login(email, password);
+      // Register returns a token directly
+      const data = await register(fullName, email, password);
       localStorage.setItem("token", data.access_token);
       router.push("/projects");
     } catch (err) {
